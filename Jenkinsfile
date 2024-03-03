@@ -5,12 +5,13 @@ pipeline {
     stages{
         stage ('git cloning'){
             steps{
-             sh '''sudo su -   
-             sudo git clone https://github.com/Ashok-github-account/hrms-complete.git
-             cd /hrms-complete    
+             sh '''
+             sudo su -   
+             cd /home/centos/workspace/djngo-api-deploy/    
              cat << EOF | sudo tee sonar-project.properties
              sonar.projectkey=hrms
-             EOF ''' 
+             EOF 
+             ''' 
             }
             
         }
