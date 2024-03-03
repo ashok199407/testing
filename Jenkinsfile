@@ -8,9 +8,6 @@ pipeline {
              sh '''
              sudo su -   
              cd /home/centos/workspace/djngo-api-deploy/    
-             cat << EOF | sudo tee sonar-project.properties
-             sonar.projectkey=hrms
-             EOF 
              ''' 
             }
             
