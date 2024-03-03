@@ -5,13 +5,12 @@ pipeline {
     stages{
         stage ('git cloning'){
             steps{
-             sh 'sudo su -'   
-             sh 'sudo dnf install git -y'
-             sh 'sudo git clone https://github.com/Ashok-github-account/hrms-complete.git'
-             sh 'cd /hrms-complete/'    
-             sh 'cat << EOF | sudo tee sonar-project.properties
-                 sonar.projectkey=hrms
-                 EOF ' 
+             sh '''sudo su -   
+             sudo git clone https://github.com/Ashok-github-account/hrms-complete.git
+             cd /hrms-complete    
+             cat << EOF | sudo tee sonar-project.properties
+             sonar.projectkey=hrms
+             EOF ''' 
             }
             
         }
