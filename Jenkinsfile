@@ -18,11 +18,7 @@ pipeline {
 
         stage('SCANNING'){
             steps{
-                sh '''
-                git -v
-                ls -ltr
-                sonar-scanner
-                '''
+                sh 'sonar-scanner'
             }
         }
     }
@@ -31,10 +27,10 @@ post{
         echo 'this is run in node-1 instance'
     }
     success {
-        echo 'the build was success..'
+        echo 'the scanning was success..'
     }
     failure {
-        echo 'the build was failure'
+        echo 'the scanning was failure'
     }
 }
  
