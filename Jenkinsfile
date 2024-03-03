@@ -3,20 +3,25 @@ pipeline {
         label 'my_node-1'
     } 
     stages{
-        stage ('git'){
+        stage ('git cloning'){
             steps{
              sh 'sudo su -'   
              sh 'sudo dnf install git -y'
-             sh 'uname -a'     
+             sh 'sudo git clone https://github.com/Ashok-github-account/hrms-complete.git'
+             sh 'cd /hrms-complete/'    
+             sh 'cat << EOF | sudo tee sonar-project.properties
+                 sonar.projectkey=hrms
+                 EOF ' 
             }
             
         }
 
-        stage('git_version'){
+        stage('SCANNING'){
             steps{
                 sh '''
                 git -v
-                java --version
+                ls -ltr
+                sonar-scanner
                 '''
             }
         }
