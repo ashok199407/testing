@@ -6,7 +6,7 @@ pipeline {
         stage ('git'){
             steps{
              sh 'sudo su -'   
-             sh 'dnf install git -y'
+             sh 'sudo dnf install git -y'
              sh 'uname -a'     
             }
             
@@ -15,7 +15,7 @@ pipeline {
         stage('git_version'){
             steps{
                 sh '''
-                git --version
+                git -v
                 java --version
                 '''
             }
