@@ -3,18 +3,11 @@ pipeline {
         label 'my_node-1'
     } 
     stages{
-        stage ('git cloning'){
-            steps{
-             sh '''
-             sudo su -   
-             cd /home/centos/workspace/djngo-api-deploy/    
-             ''' 
-            }
-            
-        }
-
         stage('SCANNING'){
             steps{
+                sh 'sudo su'
+                sh 'cd /home/centos/workspace/djngo-api-deploy/hrms-complete'
+                sh 'ls -ltr'
                 sh 'sonar-scanner'
             }
         }
